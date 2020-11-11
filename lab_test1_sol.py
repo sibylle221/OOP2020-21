@@ -14,17 +14,17 @@ class FindUncommonWord:
         b_split = sen2.lower().split()
 
         uncommon_words = set(a_split).symmetric_difference(set(b_split))
-
-        a_counter = collections.Counter(a_split)
-        b_counter = collections.Counter(b_split)
-
+        print(uncommon_words)
+        # a_counter = collections.Counter(a_split)
+        # b_counter = collections.Counter(b_split)
+        my_counter = collections.Counter(a_split+b_split)
 
         # solution = []
         # for word in uncommon_words:
         #     if a_counter[word]==1 or b_counter[word]==1:
         #         solution.append(word)
 
-        solution = [word for word in uncommon_words if a_counter[word] == 1 or b_counter[word] == 1]
+        solution = [word for word in uncommon_words if my_counter[word] == 1]
         print(solution)
 
 
