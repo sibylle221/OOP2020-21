@@ -10,6 +10,7 @@ class Document:
     Class Document receives the file name at initialisation.
     """
 
+
     def __init__(self, file_name):
         self.characters = []
         self.cursor = 0
@@ -67,6 +68,7 @@ class Document:
         self.cursor += steps
 
     def backward(self, steps):
+
         """
         Method backward moves the cursor position to
         that specific location in the characters list.
@@ -77,7 +79,28 @@ class Document:
 
         Returns: none
         """
-        self.cursor -= steps
+
+        try:
+            if 12 > steps:
+                self.cursor -= steps
+            else:
+                print("Value is too big")
+
+        except ValueError:
+            print("ValueError")
+        except TypeError:
+            print("TypeError")
+        except Exception as e:
+            print("Caught some other error")
+
+
+@property
+def get_characters(self):
+    return self.__characters
+
+@property
+def get_cursor(self):
+    return self.__cursor
 
 
 # initialising an object and using the class
@@ -87,7 +110,8 @@ characters = 'fake mews'
 for letter in characters:
     doc.insert(letter)
 
-doc.backward(4)
+doc.forward(2)
+doc.backward(2)
 doc.delete()
 doc.insert('n')
 doc.save()
